@@ -68,17 +68,7 @@ class Coords_canvas(Frame):
                                                spancoords='pixels',
                                                interactive=False)
 
-    def get_para_fig(self):
 
-
-        c = np.array([v for v in self.data.values()])
-        ax = self.ax
-        fig = self.fig
-        cbar = self.cbar
-        cax = self.cax
-
-
-        return  c, ax,fig, cbar, cax
 
 
 
@@ -92,7 +82,17 @@ class Coords_canvas(Frame):
         self.clicked_xy.clear()
         self.plot_clicked.clear()
         # self.canvas.draw()
+    def get_para_fig(self):
 
+
+        c = np.array([v for v in self.data.values()])
+        ax = self.ax
+        fig = self.fig
+        cbar = self.cbar
+        cax = self.cax
+
+
+        return  c, ax,fig, cbar, cax
 
     def on_click(self, event):
         if event.inaxes!=self.ax: return
