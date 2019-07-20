@@ -91,7 +91,7 @@ class Coords_canvas(Frame):
             line.remove()
         self.clicked_xy.clear()
         self.plot_clicked.clear()
-        self.canvas.draw()
+        # self.canvas.draw()
 
 
     def on_click(self, event):
