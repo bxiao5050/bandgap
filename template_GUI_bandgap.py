@@ -34,8 +34,6 @@ class Coords_canvas(Frame):
 
         # coords = pd.read_csv('coords.txt', header = 0, index_col = 0)
         self.width = 4000
-        self.x = pd.Series([k[0] for k in data.keys()])
-        self.y = pd.Series([k[1] for k in data.keys()])
 
         c = [v for v in data.values()]
 
