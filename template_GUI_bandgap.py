@@ -17,9 +17,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.backends.backend_tkagg import (
                                     FigureCanvasTkAgg, NavigationToolbar2Tk)
 from matplotlib.figure import Figure
-import matplotlib
-import pickle
-import math
+
 from matplotlib.markers import MarkerStyle
 
 class Coords_canvas(Frame):
