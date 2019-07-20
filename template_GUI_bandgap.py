@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 import glob
-import os
+# import os
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from tkinter import *
 import matplotlib
