@@ -39,7 +39,7 @@ class Coords_canvas(Frame):
         self.b_clear = Button(self, text = 'clear selections', fg = 'blue', command = self._on_clear)
         self.b_clear.pack()
 
-        self.fig = Figure(figsize=(7.5, 6))
+        self.fig = Figure(figsize=(7.5, 6.0))
         self.canvas = FigureCanvasTkAgg(self.fig, master=self)  # A tk.DrawingArea.
         self.ax = self.fig.add_subplot(111)
         self.canvas.get_tk_widget().pack(fill='both', expand=1)
