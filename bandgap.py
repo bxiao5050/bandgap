@@ -73,9 +73,9 @@ class diff1(Frame):
         self.ax[2].vlines(x_firstEnvelop[x_start], self.ax[2].get_ylim()[0],self.ax[2].get_ylim()[1], color = 'red', linewidth = 3)
         self.ax[3].vlines(x_firstEnvelop[x_start], self.ax[3].get_ylim()[0],self.ax[3].get_ylim()[1], color = 'red', linewidth = 3)
 
-        print(f'x_right: {x_thirdEnvelop[x_right]}')
-        print(f'x_left: {np.flip(x_thirdEnvelop)[x_left]}')
-        print(f'x_start: {x_firstEnvelop[x_start]}' + '\n')
+        # print(f'x_right: {x_thirdEnvelop[x_right]}')
+        # print(f'x_left: {np.flip(x_thirdEnvelop)[x_left]}')
+        # print(f'x_start: {x_firstEnvelop[x_start]}' + '\n')
 
 
 
