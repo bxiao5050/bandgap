@@ -29,12 +29,6 @@ class Linear():
         rmse = mean_squared_error(self.y, y_predicted)
         r2 = r2_score(self.y, y_predicted)
 
-        # printing values
-        # print('Slope:' ,regression_model.coef_)
-        # print('Intercept:', regression_model.intercept_)
-        # print('Root mean squared error: ', rmse)
-        # print('R2 score: ', r2)
-
         slope = regression_model.coef_[0][0]
         intercept = regression_model.intercept_[0]
         error = rmse
@@ -47,17 +41,6 @@ class Linear():
         # self.abline(slope, intercept)
 
         return slope, intercept, error
-
-
-        # predicted values
-
-    def abline(self, slope, intercept):
-        """Plot a line from slope and intercept"""
-
-        x_vals = np.array(self.ax.get_xlim())
-        y_vals = intercept + slope * x_vals
-
-        # self.ax.plot(x_vals, y_vals, ':', color= self.color)
 
     def intersection(self, x = None, ax = None, slope1 = None, intercept1 = None, slope2 = None, intercept2 = None):
         f = intercept1 + slope1 * x
@@ -72,3 +55,13 @@ class Linear():
             ax.plot(x[idx], f[idx], 'ro')
 
         return x[idx][0]
+
+    def abline(self, slope, intercept):
+        """Plot a line from slope and intercept"""
+
+        x_vals = np.array(self.ax.get_xlim())
+        y_vals = intercept + slope * x_vals
+
+        # self.ax.plot(x_vals, y_vals, ':', color= self.color)
+
+
