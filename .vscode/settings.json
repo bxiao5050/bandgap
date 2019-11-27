@@ -1,0 +1,41 @@
+{
+  "editor.tabSize": 2,
+  "editor.fontFamily": "",
+  "editor.renderWhitespace": "none",
+  "editor.renderControlCharacters": true,
+  "editor.minimap.enabled": true,
+  "editor.fontWeight": "500",
+  "editor.suggestSelection": "first",
+  "editor.formatOnType": true,
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.postcss": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "vetur.format.defaultFormatter.less": "prettier",
+  "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatter.ts": "prettier",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "files.associations": {
+    "*.js": "javascript",
+    "*.vue": "vue"
+  },
+  "explorer.confirmDelete": false,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "search.followSymlinks": false,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "window.zoomLevel": 0,
+  "terminal.integrated.fontFamily": "monospace",
+  "search.location": "panel",
+  "workbench.activityBar.visible": true,
+  "breadcrumbs.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "javascript.preferences.quoteStyle": "double",
+  "typescript.preferences.quoteStyle": "double",
+  "javascript.implicitProjectConfig.checkJs": true
+}
