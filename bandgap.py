@@ -73,27 +73,10 @@ class diff1(Frame):
         self.ax[2].vlines(x_firstEnvelop[x_start], self.ax[2].get_ylim()[0],self.ax[2].get_ylim()[1], color = 'red', linewidth = 3)
         self.ax[3].vlines(x_firstEnvelop[x_start], self.ax[3].get_ylim()[0],self.ax[3].get_ylim()[1], color = 'red', linewidth = 3)
 
-        # print(f'x_right: {x_thirdEnvelop[x_right]}')
-        # print(f'x_left: {np.flip(x_thirdEnvelop)[x_left]}')
-        # print(f'x_start: {x_firstEnvelop[x_start]}' + '\n')
-
-
-
-        # self.ax[3].plot(x_de2[index2], np.abs(hilbert(y_de2[index2])))
-        # self.ax[3].plot(x_de)
-
 
 
         self.canvas.draw()
 
-    def derivative(self, x, y):
-        y_de = np.diff(y) / np.diff(x)
-        x_de = (np.array(x)[:-1] + np.array(x)[1:]) / 2
-
-        return (x_de, y_de)
-
-    def on_select(self, e):
-        self.myPlot(self.x.to_numpy()[self.index], self.y.iloc[:,int(e.widget.get())].to_numpy()[self.index.iloc[:,0]])
 
 
     def _AICPicker(self,chdata):
@@ -135,12 +118,20 @@ class diff1(Frame):
             else:
                 loc = 0
             return loc
+    def derivative(self, x, y):
+        y_de = np.diff(y) / np.diff(x)
+        x_de = (np.array(x)[:-1] + np.array(x)[1:]) / 2
 
-def main():
-    root = Tk()
-    app = diff1(root)
-    app.pack()
-    root.mainloop()
+        return (x_de, y_de)
 
-if __name__ == '__main__':
-    main()
+    def on_select(self, e):
+        self.myPlot(self.x.to_numpy()[self.index], self.y.iloc[:,int(e.widget.get())].to_numpy()[self.index.iloc[:,0]])
+
+# def main():
+#     root = Tk()
+#     app = diff1(root)
+#     app.pack()
+#     root.mainloop()
+
+# if __name__ == '__main__':
+#     main()
