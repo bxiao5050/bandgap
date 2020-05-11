@@ -68,18 +68,6 @@ class RangeDrag():
             self.inf = inf
             self.ismiddle = ismiddle
 
-
-
-        def connect(self):
-            'connect to all the events we need'
-
-            self.cidpress = self.rect.figure.canvas.mpl_connect(
-                'button_press_event', lambda event: self.on_press(event))
-            self.cidrelease = self.rect.figure.canvas.mpl_connect(
-                'button_release_event', lambda event: self.on_release(event))
-            self.cidmotion = self.rect.figure.canvas.mpl_connect(
-                'motion_notify_event', lambda event: self.on_motion(event))
-
         def on_press(self, event):
             'on button press we will see if the mouse is over us and store some data'
             if event.inaxes != self.rect.axes: return
@@ -108,8 +96,17 @@ class RangeDrag():
             # now redraw just the rectangle
             axes.draw_artist(self.rect)
 
-            # and blit just the redrawn area
             canvas.blit(axes.bbox)
+
+        def connect(self):
+            'connect to all the events we need'
+
+            self.cidpress = self.rect.figure.canvas.mpl_connect(
+                'button_press_event', lambda event: self.on_press(event))
+            self.cidrelease = self.rect.figure.canvas.mpl_connect(
+                'button_release_event', lambda event: self.on_release(event))
+            self.cidmotion = self.rect.figure.canvas.mpl_connect(
+                'motion_notify_event', lambda event: self.on_motion(event))
 
         def on_motion(self, event):
             self.motion(event)
