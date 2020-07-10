@@ -16,7 +16,6 @@ class Linear():
         else:
             self.x, self.y = x, y
             self.color = color
-        # sckit-learn implementation
 
         # Model initialization
         regression_model = LinearRegression()
@@ -42,6 +41,16 @@ class Linear():
 
         return slope, intercept, error
 
+
+
+    def abline(self, slope, intercept):
+        """Plot a line from slope and intercept"""
+
+        x_vals = np.array(self.ax.get_xlim())
+        y_vals = intercept + slope * x_vals
+
+        # self.ax.plot(x_vals, y_vals, ':', color= self.color)
+
     def intersection(self, x = None, ax = None, slope1 = None, intercept1 = None, slope2 = None, intercept2 = None):
         f = intercept1 + slope1 * x
         g = intercept2 + slope2 * x
@@ -55,13 +64,3 @@ class Linear():
             ax.plot(x[idx], f[idx], 'ro')
 
         return x[idx][0]
-
-    def abline(self, slope, intercept):
-        """Plot a line from slope and intercept"""
-
-        x_vals = np.array(self.ax.get_xlim())
-        y_vals = intercept + slope * x_vals
-
-        # self.ax.plot(x_vals, y_vals, ':', color= self.color)
-
-
