@@ -69,7 +69,7 @@ class RangeDrag():
             self.ismiddle = ismiddle
 
         def on_press(self, event):
-            'on button press we will see if the mouse is over us and store some data'
+            # 'on button press we will see if the mouse is over us and store some data'
             if event.inaxes != self.rect.axes: return
             if self.lock is not None: return
             contains, attrd = self.rect.contains(event)
@@ -110,6 +110,36 @@ class RangeDrag():
 
         def on_motion(self, event):
             self.motion(event)
+            
+        def on_set_button(self,e):
+            # 'on button press we will see if the mouse is over us and store some data'
+            if event.inaxes != self.rect.axes: return
+            if self.lock is not None: return
+            contains, attrd = self.rect.contains(event)
+            if not contains: return
+
+            if self.ismiddle == True:
+                self.l10 = self.middle.xy[0]
+                self.l20 = self.other.xy[0]
+                self.other.set_animated(True)
+
+
+            x0, y0 = self.rect.xy
+            self.press = x0, y0, event.xdata, event.ydata
+            self.lock = self
+
+            # draw everything but the selected rectangle and store the pixel buffer
+            canvas = self.rect.figure.canvas
+            axes = self.rect.axes
+            self.rect.set_animated(True)
+            self.middle.set_animated(True)
+            canvas.draw()
+            self.background = canvas.copy_from_bbox(self.rect.axes.bbox)
+
+            # now redraw just the rectangle
+            axes.draw_artist(self.rect)
+
+            canvas.blit(axes.bbox)
 
         def motion(self, event):
             'on motion we will move the rect if the mouse is over us'
