@@ -16,6 +16,7 @@ class Linear():
         else:
             self.x, self.y = x, y
             self.color = color
+        # sckit-learn implementation
 
         # Model initialization
         regression_model = LinearRegression()
@@ -27,6 +28,12 @@ class Linear():
         # model evaluation
         rmse = mean_squared_error(self.y, y_predicted)
         r2 = r2_score(self.y, y_predicted)
+
+        # printing values
+        # print('Slope:' ,regression_model.coef_)
+        # print('Intercept:', regression_model.intercept_)
+        # print('Root mean squared error: ', rmse)
+        # print('R2 score: ', r2)
 
         slope = regression_model.coef_[0][0]
         intercept = regression_model.intercept_[0]
@@ -42,6 +49,7 @@ class Linear():
         return slope, intercept, error
 
 
+        # predicted values
 
     def abline(self, slope, intercept):
         """Plot a line from slope and intercept"""

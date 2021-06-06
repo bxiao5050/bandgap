@@ -54,17 +54,13 @@ complete wafer with 342 buttons, only allow for single-button click
 
 
 
+    def on_buttonPress(self, pos):
+        self.buttonPress(pos)
 
-
-    def getpressedButtonPos(self):
-        return [pos for pos, b in self.pAB.items() if b.cget('relief') == 'sunken']
-
-    def getpressedB(self):
-        pressedB = {}
-        for pos, b in self.pAB.items():
-            if b.cget('relief') == 'sunken':
-                pressedB[pos] = b
-        return pressedB
+    def buttonPress(self, pos):
+        for b in self.getpressedButtons():
+            b.config(relief = 'raised')
+        self.pAB[pos].oneOrTwoclick()
 
     #override mouse enter
     def on_enter(self, e):
@@ -76,6 +72,18 @@ complete wafer with 342 buttons, only allow for single-button click
     def getpressedButtonnames(self):
         return [b.cget('text') for b in self.pAB.values() if b.cget('relief') == 'sunken']
 
+    def getpressedButtons(self):
+        return [b for b in self.pAB.values() if b.cget('relief') == 'sunken']
+
+    def getpressedButtonPos(self):
+        return [pos for pos, b in self.pAB.items() if b.cget('relief') == 'sunken']
+
+    def getpressedB(self):
+        pressedB = {}
+        for pos, b in self.pAB.items():
+            if b.cget('relief') == 'sunken':
+                pressedB[pos] = b
+        return pressedB
 
     #reset buttons
     def raiseButtons(self):

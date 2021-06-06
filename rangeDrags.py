@@ -68,35 +68,7 @@ class RangeDrag():
             self.inf = inf
             self.ismiddle = ismiddle
 
-        def on_press(self, event):
-            # 'on button press we will see if the mouse is over us and store some data'
-            if event.inaxes != self.rect.axes: return
-            if self.lock is not None: return
-            contains, attrd = self.rect.contains(event)
-            if not contains: return
 
-            if self.ismiddle == True:
-                self.l10 = self.middle.xy[0]
-                self.l20 = self.other.xy[0]
-                self.other.set_animated(True)
-
-
-            x0, y0 = self.rect.xy
-            self.press = x0, y0, event.xdata, event.ydata
-            self.lock = self
-
-            # draw everything but the selected rectangle and store the pixel buffer
-            canvas = self.rect.figure.canvas
-            axes = self.rect.axes
-            self.rect.set_animated(True)
-            self.middle.set_animated(True)
-            canvas.draw()
-            self.background = canvas.copy_from_bbox(self.rect.axes.bbox)
-
-            # now redraw just the rectangle
-            axes.draw_artist(self.rect)
-
-            canvas.blit(axes.bbox)
 
         def connect(self):
             'connect to all the events we need'
@@ -108,11 +80,8 @@ class RangeDrag():
             self.cidmotion = self.rect.figure.canvas.mpl_connect(
                 'motion_notify_event', lambda event: self.on_motion(event))
 
-        def on_motion(self, event):
-            self.motion(event)
-            
-        def on_set_button(self,e):
-            # 'on button press we will see if the mouse is over us and store some data'
+        def on_press(self, event):
+            'on button press we will see if the mouse is over us and store some data'
             if event.inaxes != self.rect.axes: return
             if self.lock is not None: return
             contains, attrd = self.rect.contains(event)
@@ -139,7 +108,11 @@ class RangeDrag():
             # now redraw just the rectangle
             axes.draw_artist(self.rect)
 
+            # and blit just the redrawn area
             canvas.blit(axes.bbox)
+
+        def on_motion(self, event):
+            self.motion(event)
 
         def motion(self, event):
             'on motion we will move the rect if the mouse is over us'

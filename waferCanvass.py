@@ -57,7 +57,17 @@ class WaferCanvas(Frame):
         self.l2.configure(text= pos)
         # self.l2.configure(text= self.getposPhase(pos))
 
+    def getPAC(self):
+        return self.pAC
 
+    def on_closeAll(self, w):
+        threading.Thread(target=lambda: self.closeAll(w)).start()
+
+    def closeAll(self, w):
+        for pos in self.getPAC():
+            self.pAC[pos].destroy()
+            time.sleep(0.001)
+        w.destroy()
 
     def showLegend(self, yticklabels):
 
