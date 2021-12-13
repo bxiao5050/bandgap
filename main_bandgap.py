@@ -49,19 +49,6 @@ class P_import(Frame):
         self.index = None # select x range
         self.pos = None
 
-    def on_next(self):
-        if self.index is not None:
-            w = Toplevel()
-            p_calp.diff1(w, x = self.x, y = self.y, index = self.index)
-
-
-
-    def on_range(self):
-        if self.drag is None:
-            self.drag = rangeDrags.RangeDrag(self, ax = self.ax_up)
-            self.canvas.draw()
-
-
     def on_preview(self):
         if self.drag is not None:
             x_range = [float(i) for i in self.drag.getXrange().split(' - ')]
@@ -72,6 +59,19 @@ class P_import(Frame):
             self.ax_up.set_title('Energy range: '+self.drag.getXrange(), color = 'blue')
             self.canvas.draw()
 
+    def on_next(self):
+        if self.index is not None:
+            w = Toplevel()
+            p_calp.diff1(w, x = self.x, y = self.y, index = self.index)
+
+
+
+    def on_range(self):
+        pass
+
+
+
+
     def get_range_index(self):
         return self.index
 
@@ -79,6 +79,13 @@ class P_import(Frame):
 
     def readfiles(self, text):
         #2. get XRD from a csv file
+
+        #add droplist
+        if self.x is not None and self.y is not None:
+            self.droplist.config(values = [i for i in range(1, len(self.y.iloc[0,:]) + 1)])
+
+
+    def on_select(self, e):
         path = choosefilesb.OpenCSV(self).getFilePath()
         if len(path) != 0:
             # self.title = path
@@ -98,14 +105,6 @@ class P_import(Frame):
                         self.direct_L.config(text = 'direct: '+ os.path.splitext(basename)[0])
             except:
                 pass
-
-
-        #add droplist
-        if self.x is not None and self.y is not None:
-            self.droplist.config(values = [i for i in range(1, len(self.y.iloc[0,:]) + 1)])
-
-
-    def on_select(self, e):
         if self.line_up is not None:
             self.line_up.remove()
         self.pos = int(e.widget.get()) - 1
