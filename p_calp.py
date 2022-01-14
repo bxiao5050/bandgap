@@ -17,6 +17,7 @@ import sWafers
 import linear
 import rangeDrags
 import waferCanvass
+from template_GUI_bandgap import Template_GUI_bandgap
 
 class diff1(Frame):
     def __init__(self, master, x = None, y = None, index = None):

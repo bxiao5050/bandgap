@@ -30,20 +30,7 @@ class diff1(Frame):
         x = self.x.to_numpy()[self.index]
         y = self.y.iloc[:,0].to_numpy()[self.index.iloc[:,0]]
 
-        self.ax[1].vlines(x_thirdEnvelop[x_right], self.ax[1].get_ylim()[0],self.ax[1].get_ylim()[1], color = 'red', linewidth = 3)
-        self.ax[2].vlines(x_thirdEnvelop[x_right], self.ax[2].get_ylim()[0],self.ax[2].get_ylim()[1], color = 'red', linewidth = 3)
-        self.ax[3].vlines(x_thirdEnvelop[x_right], self.ax[3].get_ylim()[0],self.ax[3].get_ylim()[1], color = 'red', linewidth = 3)
-
-        self.ax[1].vlines(np.flip(x_thirdEnvelop)[x_left], self.ax[1].get_ylim()[0],self.ax[1].get_ylim()[1], color = 'red', linewidth = 3)
-        self.ax[2].vlines(np.flip(x_thirdEnvelop)[x_left], self.ax[2].get_ylim()[0],self.ax[2].get_ylim()[1], color = 'red', linewidth = 3)
-        self.ax[3].vlines(np.flip(x_thirdEnvelop)[x_left], self.ax[3].get_ylim()[0],self.ax[3].get_ylim()[1], color = 'red', linewidth = 3)
-
-        index3 = np.logical_and(x_de2>1.7, x_de2<2)
-        x_start = self._AICPicker(np.flip(y_de2[index3]))
-        x_firstEnvelop = np.flip(x_de2[index3])
-        self.ax[1].vlines(x_firstEnvelop[x_start], self.ax[1].get_ylim()[0],self.ax[1].get_ylim()[1], color = 'red', linewidth = 3)
-        self.ax[2].vlines(x_firstEnvelop[x_start], self.ax[2].get_ylim()[0],self.ax[2].get_ylim()[1], color = 'red', linewidth = 3)
-        self.ax[3].vlines(x_firstEnvelop[x_start], self.ax[3].get_ylim()[0],self.ax[3].get_ylim()[1], color = 'red', linewidth = 3)
+        self.myPlot(x, y)
 
     def myPlot(self, x, y):
         for i in range(1, 4):

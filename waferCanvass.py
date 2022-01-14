@@ -9,6 +9,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 
 from tkinter import *
 
+
 class WaferCanvas(Frame):
 
     def __init__(self, master, **kw):
