@@ -3,7 +3,7 @@ This tool is used to automate band gap determination. It allows to make a fully 
 for thin-film libraries.
 
 <p align="center">
-    <a href="https://ruhr-uni-bochum.sciebo.de/s/DDnRoGzBRAAhWYg" target="_blank">
+    <a href="https://ruhr-uni-bochum.sciebo.de/s/9Gh7H91tPEEn8DQ" target="_blank">
         <img align="center" width = "200" alt="download" src="/assets/download_logo1.png"/>
     </a>
 </p>
