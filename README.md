@@ -4,7 +4,7 @@ for thin-film libraries.
 
 <p align="center">
     <a href="https://ruhr-uni-bochum.sciebo.de/s/DDnRoGzBRAAhWYg" target="_blank">
-        <img align="center" alt="download" src="https://www.screentogif.com/wiki/download-now.png"/>
+        <img align="center" alt="download" src="/assets/download_logo1.png"/>
     </a>
 </p>
 
@@ -13,6 +13,16 @@ The method used in this tool is simple, fast, robust to preprocessing errors and
 which contains the most linear feature that could represent Tauc segment. The breakpoints are divided into cusps and inflection points by 
 testing their significant changes in curvature using adaptive smoothing techniques. Applying this method to experimental data indicated 
 that it could handle all kinds of thin-film library data without prior knowledge.
+
+### Screenshots
+=====================================================
+
+<p align="center">
+     <img align="center" src="/assets/image1.png"/>
+    <img align="center" src="/assets/image2.gif"/>
+</p>
+
+
 
 ## Basic algorithm
 The detailed algorithm used in this tool could be found in [documentation](/assets/algorithm_bandgap.pdf). Below is just a short description of this method:
