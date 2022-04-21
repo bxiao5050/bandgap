@@ -66,16 +66,6 @@ class MyButton(Button):
 
 
 
-def main():
-    root = Tk()
-    a = MyButton(root)
-
-    a.pack()
-
-
-    root.mainloop()
-
-if __name__ == '__main__': main()
 
 
 

@@ -134,13 +134,4 @@ class diff1(Frame):
                 loc = ind
             else:
                 loc = 0
-            return loc
-
-def main():
-    root = Tk()
-    app = diff1(root)
-    app.pack()
-    root.mainloop()
-
-if __name__ == '__main__':
-    main()
+            ret

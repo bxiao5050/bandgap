@@ -85,16 +85,16 @@ class WaferCanvas(Frame):
         # self.ax.margins(0.8)
         self.f.subplots_adjust(left=0.2, right=1, top=0.8, bottom=0.2)
 
-def main():
-    app = Tk()
+# def main():
+#     app = Tk()
 
-    wc = WaferCanvas(app)
-    wc.pack()
-    wc.showLegend( [-1, 0, 1,2,3,4,10])
+#     wc = WaferCanvas(app)
+#     wc.pack()
+#     wc.showLegend( [-1, 0, 1,2,3,4,10])
 
-    app.mainloop()
+#     app.mainloop()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 

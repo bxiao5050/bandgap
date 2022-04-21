@@ -321,11 +321,11 @@ class diff1(Frame):
         except:
             messagebox.showinfo(title = '', message = 'wrong range')
 
-def main():
-    root = Tk()
-    app = diff1(root)
-    app.pack()
-    root.mainloop()
+# def main():
+#     root = Tk()
+#     app = diff1(root)
+#     app.pack()
+#     root.mainloop()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

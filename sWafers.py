@@ -104,13 +104,13 @@ complete wafer with 342 buttons, only allow for single-button click
         self.pos += 1
 
 
-def main():
-    root = Tk()
-    SWafer(root).pack(fill = 'both', expand = True)
+# def main():
+#     root = Tk()
+#     SWafer(root).pack(fill = 'both', expand = True)
 
-    root.mainloop()
+#     root.mainloop()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 

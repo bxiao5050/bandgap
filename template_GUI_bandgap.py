@@ -1013,17 +1013,17 @@ class Publication_para_thickness(Frame):
 
 
 
-def main():
-    root = Tk()
+# def main():
+#     root = Tk()
 
-    d = pd.read_csv('210913_K4_1_Wid.csv', header =1)
-    coords = [(x,y) for x, y in zip(d.iloc[:, 0], d.iloc[:,1])]
-    resis = d.iloc[:, 2:5].mean(axis =1) # take average
-    data = {k:v for k,v in zip(coords, resis)}
+#     d = pd.read_csv('210913_K4_1_Wid.csv', header =1)
+#     coords = [(x,y) for x, y in zip(d.iloc[:, 0], d.iloc[:,1])]
+#     resis = d.iloc[:, 2:5].mean(axis =1) # take average
+#     data = {k:v for k,v in zip(coords, resis)}
 
-    app = Template_GUI_bandgap(root, data)
+#     app = Template_GUI_bandgap(root, data)
 
-    root.mainloop()
+#     root.mainloop()
 
-if __name__=='__main__':
-    main()
+# if __name__=='__main__':
+#     main()
