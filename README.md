@@ -8,6 +8,9 @@ for thin-film libraries.
     </a>
 </p>
 
+## Python dependencies
+The list of required python packages is contained in the [requirements.txt](requirements.txt) file in this repository. After install the required dependencies, run `main_bandgap.py` to execute the program.
+
 ## Overview
 The method used in this tool is simple, fast, robust to preprocessing errors and unifies the problems of curvature evaluation, curve decomposition and Tauc segmentation extraction. The main idea is to decompose the given curve by breakpoints and select the fragment 
 which contains the most linear feature that could represent Tauc segment. The breakpoints are divided into cusps and inflection points by 
@@ -41,5 +44,4 @@ Figure 1. Tauc method allows to determinate the band gap energy (Eg) from absorp
 
 Figure 2. Possible types of cusps and inflection points for curve decomposition. A cusp stands for a point between two consecutive convex or concave, whereas an inflection point is a point where the curve changes from being convex to concave or vice versa.
 
-## Python dependencies
-The list of required python packages is contained in the [requirements.txt](requirements.txt) file in this repository. After install the required dependencies, run `main_bandgap.py` to execute the program.
+
