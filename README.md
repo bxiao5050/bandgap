@@ -42,4 +42,4 @@ Figure 1. Tauc method allows to determinate the band gap energy (Eg) from absorp
 Figure 2. Possible types of cusps and inflection points for curve decomposition. A cusp stands for a point between two consecutive convex or concave, whereas an inflection point is a point where the curve changes from being convex to concave or vice versa.
 
 ## Python dependencies
-The list of required python packages is contained in the `requirements.txt <requirements.txt>`_ file in this repository. 
+The list of required python packages is contained in the [requirements.txt](requirements.txt) file in this repository. 
