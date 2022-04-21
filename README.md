@@ -1,7 +1,15 @@
 # Band gap calculation
-## Overview
 This tool is used to automate band gap determination. It allows to make a fully automated band gap energy analysis
-for thin-film libraries. The method used in this tool is simple, fast, robust to preprocessing errors and unifies the problems of curvature evaluation, curve decomposition and Tauc segmentation extraction. The main idea is to decompose the given curve by breakpoints and select the fragment 
+for thin-film libraries.
+
+<p align="center">
+    <a href="https://ruhr-uni-bochum.sciebo.de/s/DDnRoGzBRAAhWYg" target="_blank">
+        <img align="center" alt="download" src="https://www.screentogif.com/wiki/download-now.png"/>
+    </a>
+</p>
+
+## Overview
+The method used in this tool is simple, fast, robust to preprocessing errors and unifies the problems of curvature evaluation, curve decomposition and Tauc segmentation extraction. The main idea is to decompose the given curve by breakpoints and select the fragment 
 which contains the most linear feature that could represent Tauc segment. The breakpoints are divided into cusps and inflection points by 
 testing their significant changes in curvature using adaptive smoothing techniques. Applying this method to experimental data indicated 
 that it could handle all kinds of thin-film library data without prior knowledge.
