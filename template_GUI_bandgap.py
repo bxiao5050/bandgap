@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 import glob
-# import os
+import os
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from tkinter import *
 import matplotlib
@@ -17,7 +17,9 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.backends.backend_tkagg import (
                                     FigureCanvasTkAgg, NavigationToolbar2Tk)
 from matplotlib.figure import Figure
-
+import matplotlib
+import pickle
+import math
 from matplotlib.markers import MarkerStyle
 
 class Coords_canvas(Frame):
@@ -32,6 +34,8 @@ class Coords_canvas(Frame):
 
         # coords = pd.read_csv('coords.txt', header = 0, index_col = 0)
         self.width = 4000
+        self.x = pd.Series([k[0] for k in data.keys()])
+        self.y = pd.Series([k[1] for k in data.keys()])
 
         c = [v for v in data.values()]
 
@@ -39,7 +43,7 @@ class Coords_canvas(Frame):
         self.b_clear = Button(self, text = 'clear selections', fg = 'blue', command = self._on_clear)
         self.b_clear.pack()
 
-        self.fig = Figure(figsize=(7.5, 6.0))
+        self.fig = Figure(figsize=(7.5, 6))
         self.canvas = FigureCanvasTkAgg(self.fig, master=self)  # A tk.DrawingArea.
         self.ax = self.fig.add_subplot(111)
         self.canvas.get_tk_widget().pack(fill='both', expand=1)
@@ -66,7 +70,17 @@ class Coords_canvas(Frame):
                                                spancoords='pixels',
                                                interactive=False)
 
+    def get_para_fig(self):
 
+
+        c = np.array([v for v in self.data.values()])
+        ax = self.ax
+        fig = self.fig
+        cbar = self.cbar
+        cax = self.cax
+
+
+        return  c, ax,fig, cbar, cax
 
 
 
@@ -79,18 +93,8 @@ class Coords_canvas(Frame):
             line.remove()
         self.clicked_xy.clear()
         self.plot_clicked.clear()
-        # self.canvas.draw()
-    def get_para_fig(self):
+        self.canvas.draw()
 
-
-        c = np.array([v for v in self.data.values()])
-        ax = self.ax
-        fig = self.fig
-        cbar = self.cbar
-        cax = self.cax
-
-
-        return  c, ax,fig, cbar, cax
 
     def on_click(self, event):
         if event.inaxes!=self.ax: return
